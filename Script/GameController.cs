@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    float spawnTimer;
-    float spawnRate = 3f;
-    public GameObject Tubi;
+    float SpawnTimer;
+    float SpawnRate = 3f;
+    public GameObject tubo;
+    public static bool GameOver;
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= spawnRate)
+        if(!GameOver)
         {
-            spawnTimer -= spawnRate;
-            Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
-            Instantiate(Tubi, spawnPos, Quaternion.identity);
+            SpawnTimer += Time.deltaTime;
+            if (SpawnTimer >= SpawnRate)
+            {
+                SpawnTimer -= SpawnRate;
+                Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
+                Instantiate(tubo, spawnPos, Quaternion.identity);
+
+            }
+
         }
+
+            
     }
 }

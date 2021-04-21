@@ -1,28 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class Flappy : MonoBehaviour
+
+public class flappy : MonoBehaviour
 {
-    Rigidbody2D Collisione;
-    public static GameObject gameover;
+    Rigidbody2D rb;
+    public GameObject GameCollisionOver;
+    public GameObject restart;
+    public AudioClip[] audioClips;
+    AudioSource  audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        Collisione = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            Collisione.velocity = new Vector2(0f, 7f);
-        }
+    {   if (Input.GetMouseButtonDown(0) && transform.position.y < 4f && !GameController.GameOver)
+            { 
+                audioSource.PlayOneShot(audioClips[0]);
+                rb.velocity = new Vector2(0f, 7f);
+            }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gameover.SetActive(true);
+        audioSource.PlayOneShot(audioClips[1]);
+        GameCollisionOver.SetActive(true);
+        GameController.GameOver = true;
+        restart.SetActive(true);
+    
     }
 }
-
