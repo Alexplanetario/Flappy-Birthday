@@ -22,7 +22,7 @@ public class Flappy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gameover.SetActivate(true);
+        gameover.SetActive(true);
     }
 }
 
