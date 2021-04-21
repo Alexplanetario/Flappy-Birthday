@@ -5,7 +5,7 @@ using UnityEngine;
 public class Flappy : MonoBehaviour
 {
     Rigidbody2D Collisione;
-    public GameObject gameover;
+    public static GameObject gameover;
     // Start is called before the first frame update
     void Start()
     {
