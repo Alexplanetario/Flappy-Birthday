@@ -1,35 +1,49 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    float SpawnTimer;
-    float SpawnRate = 3f;
-    public GameObject tubo;
+    float SpawnTimerTubo;
+    float SpawnRateTubo = 3f;
+
+    float SpawnTimerTorta;
+    float SpawnRateTorta = 5f;
+
+    public GameObject Tubo;
+    public GameObject Torta;
+
     public static bool GameOver;
     // Start is called before the first frame update
     void Start()
     {
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!GameOver)
+        if (!GameOver)
         {
-            SpawnTimer += Time.deltaTime;
-            if (SpawnTimer >= SpawnRate)
+            SpawnTimerTubo += Time.deltaTime;
+            if (SpawnTimerTubo >= SpawnRateTubo)
             {
-                SpawnTimer -= SpawnRate;
+                SpawnTimerTubo -= SpawnRateTubo;
                 Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
-                Instantiate(tubo, spawnPos, Quaternion.identity);
+                Instantiate(Tubo, spawnPos, Quaternion.identity);
+
+            }
+            if (SpawnTimerTorta >= SpawnRateTorta)
+            {
+                SpawnTimerTorta -= SpawnRateTorta;
+                Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
+                Instantiate(Torta, spawnPos, Quaternion.identity);
 
             }
 
         }
 
-            
+
     }
 }
