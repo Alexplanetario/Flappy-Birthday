@@ -37,8 +37,8 @@ public class GameController : MonoBehaviour
             if (SpawnTimerTorta >= SpawnRateTorta)
             {
                 SpawnTimerTorta -= SpawnRateTorta;
-                Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
-                Instantiate(Torta, spawnPos, Quaternion.identity);
+                Vector2 spawnPosTorta = new Vector2(2f,1f);
+                Instantiate(Torta, spawnPosTorta, Quaternion.identity);
 
             }
 
