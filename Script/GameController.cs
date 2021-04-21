@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     float SpawnRateTubo = 3f;
 
     float SpawnTimerTorta;
-    float SpawnRateTorta = 5f;
+    float SpawnRateTorta = 1f;
 
     public GameObject Tubo;
     public GameObject Torta;
@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
         if (!GameOver)
         {
             SpawnTimerTubo += Time.deltaTime;
+            SpawnTimerTorta += Time.deltaTime;
             if (SpawnTimerTubo >= SpawnRateTubo)
             {
                 SpawnTimerTubo -= SpawnRateTubo;
@@ -37,7 +38,7 @@ public class GameController : MonoBehaviour
             if (SpawnTimerTorta >= SpawnRateTorta)
             {
                 SpawnTimerTorta -= SpawnRateTorta;
-                Vector2 spawnPosTorta = new Vector2(2f,1f);
+                Vector2 spawnPosTorta = new Vector2(-1.65f,4f);
                 Instantiate(Torta, spawnPosTorta, Quaternion.identity);
 
             }
