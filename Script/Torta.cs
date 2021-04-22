@@ -30,7 +30,7 @@ public class Torta : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
 
         giacontatoTorta = true;

@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     public GameObject Tubo;
     public GameObject Torta;
+    
 
     public static bool GameOver;
     // Start is called before the first frame update
@@ -28,17 +29,18 @@ public class GameController : MonoBehaviour
         {
             SpawnTimerTubo += Time.deltaTime;
             SpawnTimerTorta += Time.deltaTime;
+           
             if (SpawnTimerTubo >= SpawnRateTubo)
             {
                 SpawnTimerTubo -= SpawnRateTubo;
-                Vector2 spawnPos = new Vector2(2f, Random.Range(-1f, 2f));
+                Vector2 spawnPos = new Vector2(2f,Random.Range(-0.35f, 2f));
                 Instantiate(Tubo, spawnPos, Quaternion.identity);
 
             }
             if (SpawnTimerTorta >= SpawnRateTorta)
             {
                 SpawnTimerTorta -= SpawnRateTorta;
-                Vector2 spawnPosTorta = new Vector2(1.50f, Random.Range(-0.5f, 1.5f));
+                Vector2 spawnPosTorta = new Vector2(2f, Random.Range(0.5f,1f)) ;
                 Instantiate(Torta, spawnPosTorta, Quaternion.identity);
 
             }
